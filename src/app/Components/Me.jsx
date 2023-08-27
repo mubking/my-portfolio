@@ -6,23 +6,24 @@ function Me() {
     Aos.init({
       duration: 1000,
       delay: 200,
-      easing: "ease-in"
-    })
-}, []);
+      easing: "ease-in",
+    });
+  }, []);
   return (
-
-  <div data-Aos='fade-up' className=' flex  flex-col justify-center items-center h-[50vh] bg-black text-white text-center'>
-    <h2 className='text-4xl'>Let's Work Together!</h2>
-    <p className='mt-5 text-2xl'>I am available for freelance projects. Hire me and get your project done.</p>
-   <button class="inline-flex text-white bg-indigo-500  mt-10 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-       Hire Me
-   </button>
-  </div>
-
-
-    )
+    <div
+      data-Aos="fade-up"
+      className=" flex  flex-col justify-center items-center py-20    bg-black text-white text-center"
+    >
+      <h2 className="text-4xl">Let's Work Together!</h2>
+      <p className="mt-5 text-2xl">
+        I am available for freelance projects. Hire me and get your project
+        done.
+      </p>
+      <button class="inline-flex text-white bg-indigo-500  mt-10 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        Hire Me
+      </button>
+    </div>
+  );
 }
 
 export default Me;
-
-

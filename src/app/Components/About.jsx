@@ -11,13 +11,13 @@ const About = () => {
         })
   }, []);
   return (
-    <div id='about' className='bg-[whitesmoke] h-full p-5'>
+    <div id='about' className='bg-[whitesmoke] overflow-hidden h-full p-5'>
         <div className="flex flex-row twenty">
-           <div data-Aos='fade-left' className='w-[100%] me'>
+           <div data-aos='fade-left' className='w-[100%] me overflow-hidden'>
              <img src  ="/About.jpeg" style={{height:"90vh", width:"%" }} alt="" />
            </div>
-           <div data-Aos='fade-down' className='w-[100%]'>
-            <h2 className='text-[#FF00FF] text-3xl mt-5 '>Adeshina Mubarak</h2>
+           <div data-Aos='fade-down' className='w-[100%] overflow-hidden'>
+            <h2 className='text-[#FF00FF] text-3xl mt-10 '>Adeshina Mubarak</h2>
             <h1 className='text-4xl mt-10'>I'm a Profesional Web Designer & App  Developer </h1>
             <h2  className='mt-5 text-lg'>Fascinated by the Web's connectivity, mastered HTML,CSS, React ,Nest.Js, React Native and Javascript  at 17, Crafting engaging  websites.</h2>
             <h2 className='mt-5 text-lg'>in the Crypto World, i'm a multi-role expert: Tutor,Analyst,Researcher,Community Manager,Trader, and NFT Collector,With 2 year's of experience and i have in-depth knowledge on it.</h2>

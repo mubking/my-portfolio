@@ -42,10 +42,10 @@ function Home_page() {
   }, []);
 
   return (
-    <div  id='hero' className='p-5 red bg-black w-[100%] text-white h-full'>
+    <div  id='hero' className='p-5 red bg-black overflow-hidden w-[100%] text-white h-full'>
 
-      <div  className="flex flex-row gap-10 twenty " style={{width:"100%"}}>
-        <div data-Aos='fade-down'  className="one " style={{width:"100%"}}>
+      <div  className="flex flex-row gap-10 twenty overflow-hidden" style={{width:"100%"}}>
+        <div data-Aos='fade-down'  className="one overflow-hidden" style={{width:"100%"}}>
           <h1 className='text-3xl mt-10'>{displayedTexts[0]}</h1>
           
             <span className='text-2xl mt-3 ' style={{marginTop:""}}>{displayedTexts[1]}</span>
@@ -64,7 +64,7 @@ function Home_page() {
               </button>
             </div>
           </div>
-          <div data-Aos='fade-left'  className="two me " style={{width:"100%"}}>
+          <div data-Aos='fade-left'  className="two overflow-hidden me " style={{width:"100%"}}>
             {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure maiores odio explicabo, perspiciatis magni suscipit dicta, voluptatibus veniam facere ducimus reprehenderit fugiat nihil totam esse eos doloremque aperiam amet sunt. */}
             <img src="/image.jpeg" alt="" style={{height:"90vh", width:""}} />
           </div>
