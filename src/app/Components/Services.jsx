@@ -1,6 +1,6 @@
-import {FaLaptopCode} from  'react-icons/Fa';
-import {FaLayerGroup} from  'react-icons/Fa';
-import {FaCcApplePay} from  'react-icons/Fa';
+import {FaLaptopCode} from  'react-icons/fa';
+import {FaLayerGroup} from  'react-icons/fa';
+import {FaCcApplePay} from  'react-icons/fa';
 import Aos from "aos";
 import "aos/dist/aos.css";
 import React, { useState, useEffect } from "react";
