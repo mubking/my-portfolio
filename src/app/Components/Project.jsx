@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaFilter } from "react-icons/fa";
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Navbar";
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
