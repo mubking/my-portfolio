@@ -12,24 +12,23 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false)
+      setIsLoading(false);
     }, 3000);
   }, []);
   return (
     <>
       {isLoading ? (
         <div className="flex w-full bg-[rgba(0,0,0,0.7)] h-screen justify-center items-center">
-         <div className="preloader w-[50px] h-[50px] rounded-full border-t border-t-[green] border border-[white] border-solid"></div>
+          <div className="preloader w-[50px] h-[50px] rounded-full border-t border-t-[green] border border-[white] border-solid"></div>
         </div>
       ) : (
         <section>
           <Navbar />
           <Home_page />
-          <About/>
-          <Services/>
-          <Me/>
-          <Contact/>
-          <Footer/>
+          <About />
+          <Services />
+          <Contact />
+          <Footer />
         </section>
       )}
     </>

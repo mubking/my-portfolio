@@ -1,214 +1,132 @@
 "use client";
-import React, { useState } from "react";
-// import Link from 'next/link';
-import { Link } from "react-scroll";
-import { TiSocialFacebookCircular } from "react-icons/ti";
-import { TiSocialTwitterCircular } from "react-icons/ti";
-import { TiSocialInstagram } from "react-icons/ti";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { BiLogoGithub } from "react-icons/bi";
-// import { SlSocialInstagram } from 'react-icons/Sl';
 
-function Navbar() {
-  const [menu, setMenu] = useState(false);
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
+import React, { useState, useEffect } from "react";
+import Link from "next/link"; // ✅ use Next.js built-in Link
+import { FaBars, FaTimes } from "react-icons/fa";
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "/projects" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <nav>
-      <div className="bg-[black] h-[15vh] z-[400] sticky top-0 flex flex-row  justify-between  items-center text-white p-5">
-        <div className="logo h-20  text-3xl mt-10 ">
-          <h2 className=" z-[1000] text-[red]">
-            Mubaraq<span className="text-[magenta]">Codes</span>
-          </h2>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "backdrop-blur-sm border border-gray-600/30 bg-gray-800/80 shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-5">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="text-2xl text-white font-bold">
+            Mubaraq
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Codes
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) =>
+              item.href.startsWith("#") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="relative px-4 py-2 text-gray-400 hover:text-purple-400 transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative px-4 py-2 text-gray-400 hover:text-purple-400 transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <a
+              href="#contact"
+              className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
+            >
+              Hire Me
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <FaTimes className="w-6 h-6" />
+            ) : (
+              <FaBars className="w-6 h-6" />
+            )}
+          </button>
         </div>
-        <div className="md:block hidden">
-          <ul className=" flex flex-row  gap-8 items-center  ">
-            <Link
-              activeClass="active"
-              to="hero"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Home</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>About</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="service"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Services</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Contact</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="cv"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                cv
-              </button>
-            </Link>
-          </ul>
-        </div>
-        <div className="social md:flex hidden gap-3">
-          <a href="https://www.facebook.com/hardeshina.harlmubarak?mibextid=ZbWKwL">
-            <TiSocialFacebookCircular
-              style={{ width: "100%", fontSize: "2.5vmax" }}
-            />
-          </a>
-          <a href="">
-            <TiSocialTwitterCircular
-              style={{ width: "100%", fontSize: "2.5vmax" }}
-            />
-          </a>
-          <a href="https://instagram.com/adeshina_mubaraq?igshid=MzNlNGNkZWQ4Mg==">
-            <TiSocialInstagram style={{ width: "100%", fontSize: "2.5vmax" }} />
-          </a>
-          <a href="https://www.linkedin.com/in/mubking">
-            <TiSocialLinkedinCircular
-              style={{ width: "100%", fontSize: "2.5vmax" }}
-            />
-          </a>
-          <a href="https://github.com/mubking" className="me">
-            <BiLogoGithub style={{ width: "100%", fontSize: "2.5vmax" }} />
-            <h3>Github</h3>
-          </a>
-        </div>
-        <button
-          onClick={toggleMenu}
-          className={`lg:hidden z-[500] ${menu ? "toggle open" : "toggle"}`}
-        >
-          <div className="first"></div>
-          <div className="second"></div>
-          <div className="third"></div>
-        </button>
-      </div>
-      <div className="w-full">
-        <div
-          className={`flex  z-[500]  w-[250px]  transition-[all,3s,ease-linear] ${
-            menu ? "ml-0" : " ml-[-550px]"
-          } flex-col px-5 bg-white md:hidden fixed top-0 left-0 bottom-0 items-start gap-4`}
-        >
-          <ul className=" flex flex-col pt-32 gap-8 items-start  ">
-            <Link
-              activeClass="active"
-              to="hero"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Home</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>About</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="service"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Services</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <li>Contact</li>
-            </Link>
-            <Link
-              activeClass="active"
-              to="cv"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              className=" cursor-pointer"
-              duration={500}
-            >
-              <a href="/mycv" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                cv
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-gray-800 border-t border-gray-700">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) =>
+                item.href.startsWith("#") ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-gray-400 hover:text-purple-400 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-gray-400 hover:text-purple-400 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+              <a
+                href="#contact"
+                className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Hire Me
               </a>
-            </Link>
-          </ul>
-          <div className="social grid grid-cols-3 md:flex md:flex-row flex-col gap-3">
-          <a href="https://www.facebook.com/hardeshina.harlmubarak?mibextid=ZbWKwL">
-            <TiSocialFacebookCircular
-              style={{ width: "100%", fontSize: "30px" }}
-            />
-          </a>
-          <a href="">
-            <TiSocialTwitterCircular
-              style={{ width: "100%", fontSize: "30px" }}
-            />
-          </a>
-          <a href="https://instagram.com/adeshina_mubaraq?igshid=MzNlNGNkZWQ4Mg==">
-            <TiSocialInstagram style={{ width: "100%", fontSize: "30px" }} />
-          </a>
-          <a href="https://www.linkedin.com/in/mubking">
-            <TiSocialLinkedinCircular
-              style={{ width: "100%", fontSize: "30px" }}
-            />
-          </a>
-          <a href="https://github.com/mubking" className="me">
-            <BiLogoGithub style={{ width: "100%", fontSize: "30px" }} />
-            <h3>Github</h3>
-          </a>
-        </div>
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
