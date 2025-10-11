@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 pt-20"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
@@ -90,10 +90,14 @@ const Hero = () => {
               >
                 Let's Talk
               </a>
-              <button className="px-6 py-3 text-purple-400 font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 flex items-center gap-2">
+              <a
+                href="/Adeshina_Mubarak_ATS_CV.docx"
+                download="Adeshina_Mubarak_ATS_CV.docx"
+                className="px-6 py-3 text-purple-400 font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
+              >
                 <FaDownload size={20} />
                 Download CV
-              </button>
+              </a>
             </div>
 
             {/* Social Links */}

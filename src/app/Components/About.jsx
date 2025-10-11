@@ -47,7 +47,9 @@ const About = () => {
 
             {/* Floating card */}
             <div
-              className="absolute -bottom-8 -right-8 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 max-w-xs bg-gray-800/80"
+              className="absolute bottom-2 right-2 sm:-bottom-8 sm:-right-8 
+             backdrop-blur-sm border border-gray-600/30 
+             rounded-xl p-6 max-w-xs bg-gray-800/80"
               data-aos="zoom-in"
             >
               <h4 className="text-purple-400 font-semibold mb-2">
