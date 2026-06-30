@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import {
   FaEnvelope,
   FaPhone,
@@ -7,7 +8,6 @@ import {
   FaPaperPlane,
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaInstagram,
   FaFacebook,
 } from "react-icons/fa";
@@ -25,18 +25,24 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
 
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you shortly.",
       });
 
       form.current?.reset();
     } catch (error) {
       toast({
-        title: "Error sending message",
-        description: "Please try again or contact me directly via email.",
+        title: "Failed to send message",
+        description:
+          "Please try again or email me directly at Adeshinamubarak6@gmail.com.",
       });
     } finally {
       setLoading(false);
@@ -44,11 +50,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    Aos.init({
-      duration: 1200,
-      once: true,
-      easing: "ease-in-out",
-    });
+    Aos.init({ duration: 1200, once: true, easing: "ease-in-out" });
   }, []);
 
   const contactInfo = [
@@ -89,13 +91,11 @@ const Contact = () => {
       href: "https://instagram.com/adeshina_mubaraq?igshid=MzNlNGNkZWQ4Mg==",
       label: "Instagram",
     },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
   ];
 
   return (
     <section id="contact" className="py-20 px-5 bg-gray-800">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <p className="text-purple-400 font-semibold text-lg mb-4">
             Get In Touch
@@ -107,13 +107,12 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-gray-400 text-lg">
-            I'm available for freelance projects. Hire me and get your project
-            done with cutting-edge technology and modern best practices.
+            Available for freelance projects, remote roles, and open-source
+            collaboration. Let's build something worth shipping.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8" data-aos="fade-right">
             <div>
               <h3 className="text-xl text-white font-bold mb-6">
@@ -146,7 +145,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links */}
             <div data-aos="fade-up">
               <h3 className="text-xl text-white font-bold mb-6">Follow Me</h3>
               <div className="flex gap-4 text-white">
@@ -168,7 +166,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Availability */}
             <div
               className="backdrop-blur-sm border border-gray-600/30 rounded-xl bg-gray-800/80 p-6"
               data-aos="zoom-in"
@@ -181,13 +178,12 @@ const Contact = () => {
                 <span className="text-white">Available for projects</span>
               </div>
               <p className="text-sm text-gray-400">
-                I'm currently accepting new projects and would love to hear
-                about yours.
+                Currently accepting freelance work, remote roles, and
+                open-source collaboration.
               </p>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="lg:col-span-2" data-aos="fade-left">
             <div className="bg-gray-700 rounded-xl border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 p-8">
               <h3 className="text-xl text-white font-bold mb-6">
@@ -225,7 +221,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 bg-gray-800 text-white  border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -260,7 +256,7 @@ const Contact = () => {
                     name="message"
                     rows={6}
                     required
-                    className="w-full text-[#fff] px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full text-white px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project..."
                   ></textarea>
                 </div>

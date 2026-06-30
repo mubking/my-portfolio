@@ -2,32 +2,29 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { FaCode, FaUsers, FaAward, FaCoffee } from "react-icons/fa";
+import { FaCode, FaUsers, FaAward, FaGithub } from "react-icons/fa";
 
 const About = () => {
   const stats = [
     { icon: FaCode, label: "Projects Completed", value: "40+" },
     { icon: FaUsers, label: "Happy Clients", value: "30+" },
-    { icon: FaAward, label: "Years Experience", value: "3+" },
-    { icon: FaCoffee, label: "Cups of Coffee", value: "10+" },
+    { icon: FaAward, label: "Years Experience", value: "4+" },
+    { icon: FaGithub, label: "Open Source Contributions", value: "15+" },
   ];
 
   const skills = [
-    { name: "React", level: 75 },
-    { name: "JavaScript", level: 80 },
+    { name: "Next.js", level: 90 },
     { name: "TypeScript", level: 85 },
     { name: "Node.js", level: 80 },
+    { name: "JavaScript", level: 80 },
+    { name: "MongoDB", level: 78 },
+    { name: "React", level: 75 },
+    { name: "Rust / Soroban", level: 72 },
     { name: "React Native", level: 65 },
-    { name: "Next.js", level: 90 },
   ];
 
   useEffect(() => {
-    Aos.init({
-      duration: 1200,
-      delay: 200,
-      easing: "ease-in-out",
-      once: true,
-    });
+    Aos.init({ duration: 1200, delay: 200, easing: "ease-in-out", once: true });
   }, []);
 
   return (
@@ -37,27 +34,18 @@ const About = () => {
           {/* Image */}
           <div className="relative" data-aos="fade-right">
             <div className="aspect-[4/5] relative overflow-hidden rounded-2xl">
-              <img
-                src="/mubs.jpg"
-                alt="About Adeshina Mubaraq"
-                className="w-full h-full object-cover"
-              />
+              <img src="/pimage.jpeg" alt="Adeshina Mubaraq"
+                className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
             </div>
-
             {/* Floating card */}
-            <div
-              className="absolute bottom-2 right-2 sm:-bottom-8 sm:-right-8 
-             backdrop-blur-sm border border-gray-600/30 
-             rounded-xl p-6 max-w-xs bg-gray-800/80"
-              data-aos="zoom-in"
-            >
-              <h4 className="text-purple-400 font-semibold mb-2">
-                Crypto Expertise
-              </h4>
+            <div className="absolute bottom-2 right-2 sm:-bottom-8 sm:-right-8
+              backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 max-w-xs bg-gray-800/80"
+              data-aos="zoom-in">
+              <h4 className="text-purple-400 font-semibold mb-2">Web3 Builder</h4>
               <p className="text-sm text-gray-300">
-                Multi-role expert in DeFi, NFT, and Metaverse with 2 years of
-                trading experience
+                Building on Stellar and Soroban, shipping TypeScript SDKs and
+                Rust smart contracts for real-world asset platforms.
               </p>
             </div>
           </div>
@@ -65,42 +53,34 @@ const About = () => {
           {/* Content */}
           <div className="space-y-8" data-aos="fade-left">
             <div>
-              <p className="text-purple-400 font-semibold text-lg mb-4">
-                About Me
-              </p>
+              <p className="text-purple-400 font-semibold text-lg mb-4">About Me</p>
               <h2 className="text-3xl text-white md:text-4xl font-bold leading-tight mb-6">
-                Passionate Developer &{" "}
+                Full-Stack Developer &{" "}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  Crypto Expert
+                  Web3 Engineer
                 </span>
               </h2>
-
               <div className="space-y-4 text-gray-300">
                 <p>
-                  Fascinated by the Web's connectivity, I mastered HTML, CSS,
-                  React, Nest.js, React Native and JavaScript at 17, crafting
-                  engaging websites that connect people and ideas.
+                  I'm a full-stack developer with over 4 years of experience building
+                  production-grade web applications using React, Next.js, TypeScript,
+                  and Node.js.
                 </p>
                 <p>
-                  In the Crypto World, I'm a multi-role expert: Tutor, Analyst,
-                  Researcher, Community Manager, Trader, and NFT Collector. With
-                  2 years of experience, I have in-depth knowledge in this
-                  revolutionary space.
+                  On the Web3 side, I work within the Stellar and Soroban ecosystem,
+                  shipping TypeScript SDKs, Rust smart contracts, and DeFi-adjacent
+                  platforms through open-source bounty contributions.
                 </p>
                 <p>
-                  Skilled in time management and marketing, I bring order and
-                  activity to communities, offering DeFi, NFT, and Metaverse
-                  tutoring. Let's connect for a seamless blend of Web and Crypto
-                  expertise.
+                  I focus on clean architecture, real user outcomes, and delivering
+                  products that actually work in production, not just in demo mode.
                 </p>
               </div>
             </div>
 
             {/* Skills */}
             <div data-aos="fade-up">
-              <h3 className="text-xl text-white font-semibold mb-6">
-                Technical Skills
-              </h3>
+              <h3 className="text-xl text-white font-semibold mb-6">Technical Skills</h3>
               <div className="space-y-4">
                 {skills.map((skill, index) => (
                   <div key={index}>
@@ -109,10 +89,8 @@ const About = () => {
                       <span className="text-purple-400">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                      <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                        style={{ width: `${skill.level}%` }}></div>
                     </div>
                   </div>
                 ))}
@@ -120,16 +98,12 @@ const About = () => {
             </div>
 
             <div className="flex gap-4" data-aos="zoom-in-up">
-              <a
-                href="#contact"
-                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
-              >
+              <a href="#contact"
+                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105">
                 Hire Me
               </a>
-              <a
-                href="#projects"
-                className="px-6 py-3 bg-gray-700 border border-purple-500 text-purple-400 font-semibold rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300"
-              >
+              <a href="/projects"
+                className="px-6 py-3 bg-gray-700 border border-purple-500 text-purple-400 font-semibold rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300">
                 View Projects
               </a>
             </div>
@@ -141,12 +115,8 @@ const About = () => {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div
-                key={index}
-                className="text-center group"
-                data-aos="fade-up"
-                data-aos-delay={index * 200}
-              >
+              <div key={index} className="text-center group" data-aos="fade-up"
+                data-aos-delay={index * 200}>
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-700 rounded-full mb-4 group-hover:bg-purple-500 transition-all duration-300">
                   <Icon className="w-8 h-8 text-purple-400 group-hover:text-white transition-colors" />
                 </div>

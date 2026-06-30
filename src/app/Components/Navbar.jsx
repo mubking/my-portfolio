@@ -20,9 +20,10 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "/contact" },
+    { name: "Open Source", href: "/opensource" },
   ];
 
   return (
@@ -69,7 +70,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="#contact"
+              href="/contact"
               className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
             >
               Hire Me
@@ -115,7 +116,7 @@ const Navbar = () => {
                 )
               )}
               <a
-                href="#contact"
+                href="/contact"
                 className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

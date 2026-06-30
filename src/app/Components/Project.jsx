@@ -2,25 +2,16 @@
 
 import React, { useState } from "react";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaFilter } from "react-icons/fa";
-import Navbar from "../Components/Navbar";
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "web", name: "Web Development" },
-    { id: "mobile", name: "Mobile Apps" },
-    { id: "crypto", name: "Crypto/Blockchain" },
-    { id: "design", name: "UI/UX Design" },
-  ];
 
   const projects = [
     {
       id: 1,
       title: "Temitope Supermarket",
       description:
-        "A full-featured e-commerce platform built with Next.js, offering secure authentication, Paystack payment integration, inventory and order management, and a modern responsive design.",
+        "Full-featured e-commerce platform with secure authentication, Paystack payment integration, inventory management, and order tracking. Handles real transactions for an active Nigerian retail business.",
       image: "/image.png",
       category: "web",
       technologies: [
@@ -34,28 +25,33 @@ const Projects = () => {
       githubUrl: "https://github.com/mubking",
       featured: true,
     },
-
     {
       id: 2,
-      title: "Fitness Tracking App",
+      title: "TradeFlow Web",
       description:
-        "Cross-platform mobile app for fitness tracking with workout plans, progress monitoring, and social features.",
-      image: "/src/assets/project-fitness.jpg",
-      category: "mobile",
-      technologies: ["React Native", "Firebase", "Redux", "Expo"],
-      liveUrl: "https://example.com",
+        "Fractionalized real-world asset purchasing platform on Stellar testnet. Built the FractionalPurchaseModal with live balance fetching via Freighter wallet, BigNumber.js yield calculations, and toast error handling for wallet interactions.",
+      image: "/tradeflow.png", // replace with actual screenshot
+      category: "crypto",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Stellar SDK",
+        "Freighter",
+        "Tailwind CSS",
+      ],
+      liveUrl: "https://github.com/mubking",
       githubUrl: "https://github.com/mubking",
       featured: true,
     },
     {
       id: 3,
-      title: "NFT Marketplace",
+      title: "protox-sdk",
       description:
-        "Decentralized NFT marketplace with smart contracts, wallet integration, and modern web3 features.",
-      image: "/src/assets/project-nft.jpg",
+        "Open-source TypeScript SDK for interacting with Stellar/Soroban smart contracts. Contributed features including contract versioning support and improved error handling for Freighter wallet edge cases.",
+      image: "/protox.png", // replace with actual screenshot
       category: "crypto",
-      technologies: ["React", "Solidity", "Web3.js", "IPFS"],
-      liveUrl: "https://mo-photo.vercel.app/",
+      technologies: ["TypeScript", "Stellar", "Soroban", "Node.js"],
+      liveUrl: "https://github.com/mubking",
       githubUrl: "https://github.com/mubking",
       featured: true,
     },
@@ -63,7 +59,7 @@ const Projects = () => {
       id: 4,
       title: "Mo Photo Studio",
       description:
-        "A professional photography studio website with portfolio showcase, booking system, and client gallery management.",
+        "Professional photography studio website with portfolio showcase, booking system, and client gallery management. Built with Next.js and EmailJS for direct client inquiries.",
       image: "/mo.png",
       category: "web",
       technologies: ["Next.js", "TypeScript", "EmailJS", "Tailwind CSS"],
@@ -71,31 +67,39 @@ const Projects = () => {
       githubUrl: "https://github.com/mubking",
       featured: false,
     },
-
     {
       id: 5,
-      title: "Restaurant Booking App",
+      title: "FixNaija",
       description:
-        "Mobile app for restaurant reservations with real-time availability and location-based search.",
-      image: "/placeholder.svg",
-      category: "mobile",
-      technologies: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-      liveUrl: "https://example.com",
+        "Next.js service marketplace connecting Nigerian consumers with verified local service providers. Features include profile picture uploads, review submission, live dashboard data, and MongoDB Atlas integration.",
+      image: "/fixnaija.png", // replace with actual screenshot
+      category: "web",
+      technologies: ["Next.js", "MongoDB", "Node.js", "Tailwind CSS"],
+      liveUrl: "https://github.com/mubking",
       githubUrl: "https://github.com/mubking",
       featured: false,
     },
     {
       id: 6,
-      title: "Portfolio Website Design",
+      title: "Portfolio Website",
       description:
-        "Modern portfolio website design with dark theme, animations, and responsive layout.",
+        "Personal developer portfolio with dark theme, AOS animations, responsive layout, and live project showcase. Built entirely from scratch with Next.js and Tailwind CSS.",
       image: "/images.png",
       category: "design",
-      technologies: ["Figma", "React", "Tailwind CSS", "Framer Motion"],
+      technologies: ["Next.js", "Tailwind CSS", "AOS", "React Icons"],
       liveUrl: "https://my-portfolio-sable-kappa.vercel.app/",
       githubUrl: "https://github.com/mubking",
       featured: false,
     },
+  ];
+
+  // Also update the categories array — add "web3" and remove "mobile" (no real mobile projects):
+
+  const categories = [
+    { id: "all", name: "All Projects" },
+    { id: "web", name: "Web Development" },
+    { id: "crypto", name: "Web3 / Blockchain" },
+    { id: "design", name: "UI/UX Design" },
   ];
 
   const filteredProjects =
@@ -105,7 +109,6 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-900 to-gray-800">

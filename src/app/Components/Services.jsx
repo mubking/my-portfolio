@@ -2,10 +2,10 @@
 import React, { useEffect } from "react";
 import {
   FaCode,
-  FaMobile,
+  FaLayerGroup,
   FaPalette,
   FaDatabase,
-  FaGlobe,
+  FaCubes,
   FaBolt,
 } from "react-icons/fa";
 import Aos from "aos";
@@ -19,71 +19,72 @@ const Services = () => {
   const services = [
     {
       icon: FaCode,
-      title: "Web Development",
+      title: "Full-Stack Web Development",
       description:
-        "Full-stack web apps using React, Next.js, Node.js, and modern best practices.",
+        "End-to-end web applications built with React, Next.js, Node.js, and MongoDB — from database design to live deployment.",
       features: [
         "React & Next.js",
         "Node.js & Express",
-        "Database Design",
-        "API Development",
+        "MongoDB & REST APIs",
+        "Authentication & Auth flows",
       ],
     },
     {
-      icon: FaMobile,
-      title: "Mobile Development",
-      description: "Cross-platform apps with React Native for iOS and Android.",
+      icon: FaCubes,
+      title: "Web3 / Stellar Development",
+      description:
+        "Smart contract development and DeFi tooling on the Stellar and Soroban blockchain — SDKs, dashboards, and wallet integrations.",
       features: [
-        "React Native",
-        "Cross-platform",
-        "Native Performance",
-        "App Store Deployment",
+        "Soroban Smart Contracts (Rust)",
+        "Stellar SDK Integration",
+        "Freighter Wallet Connect",
+        "TypeScript SDK Development",
       ],
     },
     {
       icon: FaPalette,
-      title: "UI/UX Design",
+      title: "UI/UX Design & Implementation",
       description:
-        "Beautiful and intuitive designs with excellent user experience.",
+        "Clean, responsive interfaces with smooth animations and a strong focus on user experience across all screen sizes.",
       features: [
-        "Modern Design",
-        "User Research",
-        "Prototyping",
-        "Responsive Design",
+        "Tailwind CSS & Component Design",
+        "AOS & Framer Motion",
+        "Dark Mode & Theming",
+        "Mobile Responsive Layouts",
       ],
     },
     {
       icon: FaDatabase,
-      title: "Backend Development",
+      title: "Backend & API Development",
       description:
-        "Secure APIs, optimized databases, and cloud-ready backends.",
+        "Secure, scalable backend systems with optimized databases, payment integrations, and cloud-ready architecture.",
       features: [
-        "REST APIs",
-        "Authentication",
-        "Database Optimization",
-        "Cloud Deployment",
+        "REST API Design",
+        "JWT & OAuth Authentication",
+        "Paystack Payment Integration",
+        "MongoDB Atlas & Cloud Deploy",
       ],
     },
     {
-      icon: FaGlobe,
-      title: "Crypto Consulting",
+      icon: FaLayerGroup,
+      title: "Open Source Contribution",
       description:
-        "Guidance in blockchain, DeFi, and NFT marketplace integration.",
+        "Active open-source contributor with 24 merged PRs across 10+ repositories — available for bounty-style and team collaboration work.",
       features: [
-        "DeFi Solutions",
-        "NFT Development",
-        "Blockchain Integration",
-        "Trading Strategies",
+        "Feature Implementation",
+        "Bug Fixes & Refactoring",
+        "Test Coverage & CI Fixes",
+        "SDK & Dashboard Components",
       ],
     },
     {
       icon: FaBolt,
-      title: "Performance Optimization",
+      title: "Performance & SEO Optimization",
       description:
-        "Optimizing speed, SEO, and UX with Core Web Vitals in mind.",
+        "Improving speed, discoverability, and Core Web Vitals scores for existing web applications.",
       features: [
-        "Speed Optimization",
-        "SEO Implementation",
+        "Page Speed Optimization",
+        "Meta & OpenGraph SEO",
         "Core Web Vitals",
         "Analytics Setup",
       ],
@@ -103,8 +104,9 @@ const Services = () => {
             </span>
           </h2>
           <p className="text-gray-400 text-lg">
-            From concept to deployment, I provide complete digital solutions to
-            help businesses thrive in the modern world.
+            From concept to deployment, I deliver complete digital solutions
+            backed by real shipped projects and verified open-source
+            contributions.
           </p>
         </div>
 
@@ -118,20 +120,17 @@ const Services = () => {
                 data-aos="zoom-in"
                 className="bg-gray-800 rounded-xl border border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 p-8 hover:shadow-purple-500/30 group"
               >
-                {/* Icon */}
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-700 rounded-xl mb-6 group-hover:bg-purple-500 transition-all duration-300">
                   <Icon className="w-8 h-8 text-purple-400 group-hover:text-white transition-colors" />
                 </div>
 
-                {/* Content */}
-                <h3 className="text-xlb text-white font-bold mb-4 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-xl text-white font-bold mb-4 group-hover:text-purple-400 transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-400 mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
-                {/* Features */}
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li
@@ -144,13 +143,12 @@ const Services = () => {
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <div className="mt-8">
                   <a
                     href="#contact"
                     className="text-purple-400 font-semibold hover:text-blue-400 transition-colors inline-flex items-center group"
                   >
-                    Learn More
+                    Get In Touch
                     <svg
                       className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                       fill="none"
@@ -182,8 +180,8 @@ const Services = () => {
               ?
             </h3>
             <p className="text-gray-400 mb-6">
-              Let's discuss your ideas and bring them to life with cutting-edge
-              technology.
+              Whether it's a full product build, a smart contract, or
+              open-source work — let's talk about what you need.
             </p>
             <a
               href="#contact"

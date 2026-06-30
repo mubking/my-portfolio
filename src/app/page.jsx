@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Navbar from "./Components/Navbar";
 import Home_page from "./Components/Home_page";
 import About from "./Components/About";
 import Services from "./Components/Services";
@@ -25,7 +24,6 @@ export default function Home() {
       ) : (
         <main className="overflow-x-hidden">
           {" "}
-          <Navbar />
           <Home_page />
           <About />
           <Services />
