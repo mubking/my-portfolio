@@ -12,15 +12,19 @@ const About = () => {
     { icon: FaGithub, label: "Open Source Contributions", value: "15+" },
   ];
 
-  const skills = [
-    { name: "Next.js", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "JavaScript", level: 80 },
-    { name: "MongoDB", level: 78 },
-    { name: "React", level: 75 },
-    { name: "Rust / Soroban", level: 72 },
-    { name: "React Native", level: 65 },
+  const skillGroups = [
+    {
+      category: "Frontend",
+      skills: ["Next.js", "React", "TypeScript", "JavaScript", "React Native"],
+    },
+    {
+      category: "Backend",
+      skills: ["Node.js", "MongoDB", "REST APIs"],
+    },
+    {
+      category: "Web3",
+      skills: ["Rust", "Soroban", "Stellar SDK", "Smart Contracts"],
+    },
   ];
 
   useEffect(() => {
@@ -81,16 +85,21 @@ const About = () => {
             {/* Skills */}
             <div data-aos="fade-up">
               <h3 className="text-xl text-white font-semibold mb-6">Technical Skills</h3>
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
+              <div className="space-y-6">
+                {skillGroups.map((group, index) => (
                   <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-white">{skill.name}</span>
-                      <span className="text-purple-400">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
-                        style={{ width: `${skill.level}%` }}></div>
+                    <p className="text-purple-400 font-medium text-sm mb-3">
+                      {group.category}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="px-4 py-2 text-sm text-gray-200 bg-gray-700 border border-gray-600/50 rounded-lg hover:border-purple-500 hover:text-white transition-all duration-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 ))}
