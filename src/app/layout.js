@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./Components/Navbar";
-import { useToast } from "@/hooks/use-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -53,7 +52,6 @@ export default function RootLayout({ children }) {
       <head>...</head>
       <body className={inter.className}>
         <Navbar />
-        <Toaster />
         {children}
       </body>
     </html>
